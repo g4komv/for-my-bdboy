@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытки & 18 причин 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0b0e;
+            color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px 90px 10px;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .page-title { font-size: 20px; color: #f43f5e; font-weight: 700; text-align: center; margin-bottom: 10px; }
+
+        .envelope-card {
+            background: #141419; border: 1px solid #281118; border-radius: 14px; padding: 14px; cursor: pointer;
+        }
+        .envelope-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 13px; color: #fda4af; }
+        .envelope-body { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); color: #e5e7eb; font-size: 13px; line-height: 1.5; }
+
+        .reasons-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+        .reason-item { background: #141419; border: 1px solid #331018; border-radius: 14px; padding: 14px; }
+        .reason-title { font-weight: 700; color: #f43f5e; font-size: 14px; margin-bottom: 4px; }
+        .reason-text { font-size: 13px; color: #d1d5db; line-height: 1.5; }
+
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; background: #101014;
+            border-top: 1px solid #281118; display: flex; justify-content: space-around; padding: 10px 0; z-index: 100;
+        }
+        .nav-link {
+            text-decoration: none; color: #6b7280; font-size: 11px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .nav-link.active { color: #e11d48; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="page-title">Открытки для тебя 💌</div>
+
+        <div class="envelope-card" onclick="toggleCard(this)">
+            <div class="envelope-header"><span>✉️ Конверт №1: Про мечты</span><span>▼</span></div>
+            <div class="envelope-body">Желаю тебе никогда не бояться масштабных целей! Я знаю, какой ты целеустремленный, и верю в каждый твой шаг.</div>
+        </div>
+        <div class="envelope-card" onclick="toggleCard(this)">
+            <div class="envelope-header"><span>✉️ Конверт №2: Про нас</span><span>▼</span></div>
+            <div class="envelope-body">Спасибо за то, что делаешь меня самой счастливой девушкой. Каждая секунда с тобой — это уют и радость!</div>
+        </div>
+        <div class="envelope-card" onclick="toggleCard(this)">
+            <div class="envelope-header"><span>✉️ Конверт №3: Про твои 18</span><span>▼</span></div>
+            <div class="envelope-body">Пусть этот год принесет тебе море крутых событий, вдохновения и побед! А я всегда буду рядом.</div>
+        </div>
+
+        <div class="page-title" style="margin-top: 20px;">18 reasons why I love you ♡</div>
+
+        <div class="reasons-list">
+            <div class="reason-item"><div class="reason-title">♡ 01 — Your eyes</div><div class="reason-text">Because sometimes I forget what I was going to say when I look into them.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 02 — Your mind</div><div class="reason-text">Because I love the way you think, the way you question things, and the way you see the world.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 03 — Your determination</div><div class="reason-text">Because I’ve seen you keep going even when things get difficult, and I hope you know how proud I am of you.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 04 — Your laugh</div><div class="reason-text">Because if I could save one sound and listen to it whenever I missed you, it would be yours.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 05 — Your hugs</div><div class="reason-text">Because being in your arms makes me wish the world would slow down a little.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 06 — The way you love me</div><div class="reason-text">Because you make me feel like I can be myself around you.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 07 — Your heart</div><div class="reason-text">Because beneath everything you are, there is a heart that I feel so lucky to know and love.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 08 — Your voice</div><div class="reason-text">Because even on the most ordinary days, hearing your voice makes everything feel a little better.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 09 — Your ambition</div><div class="reason-text">Because I admire how much you want to achieve in life, and I hope you never forget how capable you are of making your dreams come true.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 10 — Your little habits</div><div class="reason-text">Because even the smallest things you do become special to me when they are a part of you.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 11 — Your smile</div><div class="reason-text">Because seeing you genuinely happy is one of my favorite things in the world, and I wish I could be there for every moment that makes you smile.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 12 — Your mind when you’re passionate about something</div><div class="reason-text">Because I love listening to you talk about the things you care about, watching your eyes light up, and discovering all the little things that make you who you are.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 13 — Your strength</div><div class="reason-text">Because I’ve seen you face difficult days and keep moving forward. But I also want you to know that you don’t always have to be strong with me. You can rest, be vulnerable, and let yourself be taken care of, too.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 14 — The way you make me laugh</div><div class="reason-text">Because with you, even the most random conversations can become my favorite memories. I love that we can be silly together and create our own little world out of nothing.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 15 — Your presence</div><div class="reason-text">Because you don’t have to do anything extraordinary to make me happy. Sometimes, simply knowing that you’re there is enough to make an ordinary moment feel special.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 16 — The way you make me feel loved</div><div class="reason-text">Because in the little moments we share, you remind me that love can be found in the smallest gestures, the sweetest words, and the simple feeling of being close to someone.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 17 — The person you’re becoming</div><div class="reason-text">Because I’m proud of the person you are today, and I’m excited to watch you grow into the person you dream of becoming.</div></div>
+            <div class="reason-item"><div class="reason-title">♡ 18 — Simply because you’re YOU</div><div class="reason-text">Because even if I tried to list every little thing I love about you, I would still never be able to explain it all.</div></div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-link"><span>🏠</span><span>Главная</span></a>
+        <a href="page2.html" class="nav-link active"><span>💌</span><span>Причины</span></a>
+        <a href="page3.html" class="nav-link"><span>📸</span><span>Фото</span></a>
+        <a href="page4.html" class="nav-link"><span>🎵</span><span>Музыка</span></a>
+        <a href="letter.html" class="nav-link"><span>❤️</span><span>Письмо</span></a>
+    </nav>
+
+    <script>
+        function toggleCard(card) {
+            const body = card.querySelector('.envelope-body');
+            body.style.display = body.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

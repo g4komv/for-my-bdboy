@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши воспоминания 📸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0b0e;
+            color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px 90px 10px;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .page-title { font-size: 20px; color: #f43f5e; font-weight: 700; text-align: center; margin-bottom: 5px; }
+
+        .gallery-34 { display: flex; flex-direction: column; gap: 18px; }
+        .photo-card-34 { background: #141419; padding: 12px; border-radius: 18px; border: 1px solid #281118; text-align: center; }
+        .photo-card-34 img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; margin-bottom: 8px; }
+        .photo-card-34 p { font-size: 13px; color: #9ca3af; }
+
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; background: #101014;
+            border-top: 1px solid #281118; display: flex; justify-content: space-around; padding: 10px 0; z-index: 100;
+        }
+        .nav-link {
+            text-decoration: none; color: #6b7280; font-size: 11px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .nav-link.active { color: #e11d48; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="page-title">Наши воспоминания 📸</div>
+
+        <div class="gallery-34">
+            <div class="photo-card-34">
+                <img src="photo1.jpg" alt="Фото 1">
+                <p>Наше самое первое и особенное воспоминание</p>
+            </div>
+            <div class="photo-card-34">
+                <img src="photo2.jpg" alt="Фото 2">
+                <p>Момент, когда мы впервые погуляли вместе</p>
+            </div>
+            <div class="photo-card-34">
+                <img src="photo3.jpg" alt="Фото 3">
+                <p>Мой самый любимый кадр с тобой</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-link"><span>🏠</span><span>Главная</span></a>
+        <a href="page2.html" class="nav-link"><span>💌</span><span>Причины</span></a>
+        <a href="page3.html" class="nav-link active"><span>📸</span><span>Фото</span></a>
+        <a href="page4.html" class="nav-link"><span>🎵</span><span>Музыка</span></a>
+        <a href="letter.html" class="nav-link"><span>❤️</span><span>Письмо</span></a>
+    </nav>
+
+</body>
+</html>

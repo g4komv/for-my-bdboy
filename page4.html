@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыка наших отношений 🎵</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0b0e;
+            color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px 90px 10px;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .page-title { font-size: 20px; color: #f43f5e; font-weight: 700; text-align: center; margin-bottom: 5px; }
+
+        .music-list { display: flex; flex-direction: column; gap: 18px; }
+        .music-item { 
+            background: #141419; 
+            border: 1px solid #281118; 
+            border-radius: 18px; 
+            padding: 18px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .music-title { font-weight: 700; color: #fb7185; font-size: 14px; margin-bottom: 4px; }
+        .music-desc { font-size: 12px; color: #9ca3af; margin-bottom: 14px; }
+
+        /* Стиль виниловой пластинки */
+        .vinyl-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 14px;
+        }
+        .vinyl {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #2b2b36 0%, #111115 40%, #000000 70%, #1a1a20 100%);
+            border-radius: 50%;
+            border: 3px solid #1f1f28;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        /* Внутренний круг пластинки */
+        .vinyl-center {
+            width: 46px;
+            height: 46px;
+            background: radial-gradient(circle, #e11d48, #9f1239);
+            border-radius: 50%;
+            border: 2px solid #ffffff22;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Кнопка Play/Pause по центру пластинки */
+        .play-btn {
+            background: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Анимация вращения */
+        .vinyl.spinning {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        audio { width: 100%; height: 32px; border-radius: 8px; margin-top: 5px; }
+
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; background: #101014;
+            border-top: 1px solid #281118; display: flex; justify-content: space-around; padding: 10px 0; z-index: 100;
+        }
+        .nav-link {
+            text-decoration: none; color: #6b7280; font-size: 11px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .nav-link.active { color: #e11d48; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="page-title">Музыка наших отношений 🎵</div>
+
+        <div class="music-list">
+
+            <!-- Трек 1 -->
+            <div class="music-item">
+                <div class="music-title">🎵 The song that reminds me of you</div>
+                <div class="music-desc">Because every time I hear it, I think of you.</div>
+                
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl1">
+                        <div class="vinyl-center">
+                            <button class="play-btn" onclick="togglePlay(1)">▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="audio1" src="song1.mp3"></audio>
+            </div>
+
+            <!-- Трек 2 -->
+            <div class="music-item">
+                <div class="music-title">🎵 The song I'd play if you were here</div>
+                <div class="music-desc">Close your eyes and imagine us together.</div>
+                
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl2">
+                        <div class="vinyl-center">
+                            <button class="play-btn" onclick="togglePlay(2)">▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="audio2" src="song2.mp3"></audio>
+            </div>
+
+            <!-- Трек 3 -->
+            <div class="music-item">
+                <div class="music-title">🎵 The song that feels like us</div>
+                <div class="music-desc">Somehow, this song sounds like our relationship.</div>
+                
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl3">
+                        <div class="vinyl-center">
+                            <button class="play-btn" onclick="togglePlay(3)">▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="audio3" src="song3.mp3"></audio>
+            </div>
+
+            <!-- Трек 4 -->
+            <div class="music-item">
+                <div class="music-title">🎵 The song for our future</div>
+                <div class="music-desc">For all the memories we haven’t made yet.</div>
+                
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl4">
+                        <div class="vinyl-center">
+                            <button class="play-btn" onclick="togglePlay(4)">▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="audio4" src="song4.mp3"></audio>
+            </div>
+
+            <!-- Трек 5 -->
+            <div class="music-item">
+                <div class="music-title">🎵 Your birthday song</div>
+                <div class="music-desc">This one’s for you, birthday boy.</div>
+                
+                <div class="vinyl-container">
+                    <div class="vinyl" id="vinyl5">
+                        <div class="vinyl-center">
+                            <button class="play-btn" onclick="togglePlay(5)">▶</button>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="audio5" src="song5.mp3"></audio>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Панель навигации -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-link"><span>🏠</span><span>Главная</span></a>
+        <a href="page2.html" class="nav-link"><span>💌</span><span>Причины</span></a>
+        <a href="page3.html" class="nav-link"><span>📸</span><span>Фото</span></a>
+        <a href="page4.html" class="nav-link active"><span>🎵</span><span>Музыка</span></a>
+        <a href="letter.html" class="nav-link"><span>❤️</span><span>Письмо</span></a>
+    </nav>
+
+    <script>
+        function togglePlay(id) {
+            const audio = document.getElementById('audio' + id);
+            const vinyl = document.getElementById('vinyl' + id);
+            const btn = vinyl.querySelector('.play-btn');
+
+            // Останавливаем другие треки, если они играют
+            for (let i = 1; i <= 5; i++) {
+                if (i !== id) {
+                    const otherAudio = document.getElementById('audio' + i);
+                    const otherVinyl = document.getElementById('vinyl' + i);
+                    const otherBtn = otherVinyl.querySelector('.play-btn');
+                    if (otherAudio) {
+                        otherAudio.pause();
+                        otherVinyl.classList.remove('spinning');
+                        otherBtn.innerHTML = '▶';
+                    }
+                }
+            }
+
+            // Переключаем выбранный трек
+            if (audio.paused) {
+                audio.play();
+                vinyl.classList.add('spinning');
+                btn.innerHTML = '❚❚';
+            } else {
+                audio.pause();
+                vinyl.classList.remove('spinning');
+                btn.innerHTML = '▶';
+            }
+
+            // Когда песня заканчивается — пластинка останавливается
+            audio.onended = function() {
+                vinyl.classList.remove('spinning');
+                btn.innerHTML = '▶';
+            };
+        }
+    </script>
+</body>
+</html>
